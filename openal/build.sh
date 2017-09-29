@@ -28,7 +28,7 @@ for _arch in ${_architectures}; do
       -DBUILD_SHARED_LIBS=OFF \
       -DALSOFT_EXAMPLES=OFF \
       -DALSOFT_TESTS=OFF \
-      -DALSOFT_UTILS=OFF
+      -DALSOFT_UTILS=OFF \
       ..
 	
 	make
