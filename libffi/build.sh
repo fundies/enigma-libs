@@ -33,6 +33,9 @@ for _arch in ${_architectures}; do
 	make
 	make install
 	popd
+	
+	mv "${HOME}/enigma-libs/Install/${_arch}/lib/libffi-${pkgver}/include/ffi.h" "${HOME}/enigma-libs/Install/${_arch}/include"
+	mv "${HOME}/enigma-libs/Install/${_arch}/lib/libffi-${pkgver}/include/ffitarget.h" "${HOME}/enigma-libs/Install/${_arch}/include"
 done
 
 popd

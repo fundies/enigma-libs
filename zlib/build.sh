@@ -15,6 +15,8 @@ for _arch in ${_architectures}; do
   	
   	export PKG_CONFIG="/usr/bin/pkg-config"
     export PKG_CONFIG_PATH="${HOME}/enigma-libs/Install/${_arch}/lib/pkgconfig"
+    
+    export CFLAGS="-O2 -g -pipe -Wall -Wp,-D_FORTIFY_SOURCE=2 -fexceptions --param=ssp-buffer-size=4"
   	
    ./configure --prefix="${HOME}/enigma-libs/Install/${_arch}" -static
   	
@@ -23,10 +25,14 @@ for _arch in ${_architectures}; do
     	AR=${_arch}-ar \
     	RC=${_arch}-windres \
     	STRIP=${_arch}-strip \
-    	IMPLIB=libz.dll.a  	
+    	IMPLIB=libz.dll.a  
+    	
     make install
   	
 	popd
+	
+	${_arch}-ranlib "${HOME}/enigma-libs/Install/${_arch}/lib/libz.a"
+	
 done
 
 popd
