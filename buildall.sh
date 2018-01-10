@@ -1,4 +1,4 @@
-for p in zlib libffi box2D bullet dumb libogg flac libvorbis libsndfile mpg123 openal libgme
+for p in zlib libffi box2D bullet dumb libogg flac libvorbis libsndfile mpg123 openal libgme glew
 do 
 	pushd ${p}
 	./build.sh
